@@ -1,2 +1,0 @@
-# bdCaptcha
-Test
