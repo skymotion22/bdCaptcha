@@ -89,7 +89,7 @@ class bdCaptchaClass {
       <style>
   @import('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
     #captcha {
-      width: 90%;
+      width: 100%;
       max-width: 400px;
       background: #fff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -160,6 +160,7 @@ class bdCaptchaClass {
     }
     .dialog {
       position: fixed;
+      width: 90%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);

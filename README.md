@@ -35,15 +35,10 @@ It’s designed to show solidarity with **Bangladesh** every time a human verifi
 #### ⚙️ Initialize the CAPTCHA
 
 ```js
-let bdCaptcha = null;
-
-if(window.bdCaptchaClass){
+  let bdCaptcha = null;
   bdCaptcha = new bdCaptchaClass();
   bdCaptcha.setCaptcha("captcha"); // ID used in HTML
   bdCaptcha.setCaptchaSecret("YOUR_SECRET_KEY"); // Optional but recommended for stronger token
-}else{
-  console.log("bdCaptchaClass class not loaded yet.");
-}
 
 ```
 
