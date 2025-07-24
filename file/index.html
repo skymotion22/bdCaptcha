@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+  @import('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    #captcha {
+      width: 90%;
+      max-width: 400px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ccc;
+       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .main_c {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .main_c input[type=checkbox] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .main_c label {
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .term {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .term img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+
+    .term h4 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .term a {
+      text-decoration: none;
+      font-size: 11px;
+      color: #1a73e8;
+    }
+        .spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #ddd;
+      border-top: 2px solid #22c55e;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      display: none;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+
+    .dialog h3 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .grid img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 4px;
+    }
+
+    .grid img.selected {
+      border-color: #22c55e;
+    }
+
+    .btn {
+      background: #3b82f6;
+      color: white;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: none;
+      z-index: 99;
+    }
+
+    .verified-msg {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="captcha">
+    <div class="main_c">
+      <div class="spinner" id="spinner"></div>
+      <input class="checkBox" type="checkbox" id="robotCheck" />
+      <label for="robotCheck">I'm not a robot</label>
+    </div>
+    <div class="term">
+      <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCaptcha Logo" />
+      <h4>reCAPTCHA</h4>
+      <a href="#">Privacy - Terms</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="dialog" id="dialogBox">
+  <h3>Select all images with <strong>trees</strong></h3>
+  <div class="grid" id="imageGrid">
+  </div>
+  <button class="btn" id="verifyBtn">Verify</button>
+  </div>
+  </div>
+<script src="bdCaptcha.js"></script>
+</body>
+</html>
